@@ -1,28 +1,48 @@
 %html
 	%head
+		%link{:rel => "stylesheet", :href => "/css/styles.css", :type => "text/css"}
+		%title phil the plonker
 	%body
-	
-		%form{:name => 'sign-up-form', :class => 'sign-up-form', :action => '/', :method => 'post'}
-			%div
-				%ul
-					%li
-						Name:
-						%input{:type => 'textbox', :name => 'name'}
-					%li
-						Email:
-						%input{:type => 'textbox', :name => 'email'}
-					%li
-						Number:
-						%input{:type => 'textbox', :name => 'number'}
-					%li
-						Where are you going?
+		%div{:class => 'wrapper'}
+			%header
+				%h1 Phil
+				%h5 ...the plonker
+			
+			%div{:class => 'content-form'}
+				%form{:name => 'sign-up-form', :class => 'sign-up-form', :action => '/', :method => 'post'}
+					%div
+						%p 
+							%strong Leave us your details and we'll notify you of any urgent news whiles your away.
+					
+						Hey I'm Phil, I'll be your lookout while your abroad. 
+						%br
+					
+						We want to know how we're looking out for, so what's your name
+						%input{:type => 'textbox', :name => 'name'}.
+						%br
+						When something comes up we need a quick and easy way of notifying you, 
+						%br
+						so we'll need your
+						%strong phone number 
+						%input{:type => 'textbox', :name => 'number'}, 
+						%br
+						to send you an SMS message, and your 
+						%strong email address 
+						%input{:type => 'textbox', :name => 'email'}, 
+						%br
+						(it may not be that urgent but still think we should notify you).
+					
+						%br
+						%br
+						Finally, for us to not spam you, you should tell us where you are going 
+						%br
 						%select{:name => 'destination'}
-						
 							-locals[:countries].each do |a|
 								%option{:value => a['country']['name']}= a['country']['name']
-					%li
-						When are you back?
-						%input{:type => 'textbox', :name => 'return-date'}
-					%li
+						%br
+						and when you think you'll be safely home 
+						%input{:type => 'textbox', :name => 'return-date'}.
+						%br
 						%input{:type => 'submit', :value => 'Alert me!'}
-				
+					
+					
