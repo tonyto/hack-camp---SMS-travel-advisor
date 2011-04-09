@@ -1,0 +1,28 @@
+%html
+	%head
+	%body
+	
+		%form{:name => 'sign-up-form', :class => 'sign-up-form', :action => '/', :method => 'post'}
+			%div
+				%ul
+					%li
+						Name:
+						%input{:type => 'textbox', :name => 'name'}
+					%li
+						Email:
+						%input{:type => 'textbox', :name => 'email'}
+					%li
+						Number:
+						%input{:type => 'textbox', :name => 'number'}
+					%li
+						Where are you going?
+						%select{:name => 'destination'}
+						
+							-locals[:countries].each do |a|
+								%option{:value => a['country']['name']}= a['country']['name']
+					%li
+						When are you back?
+						%input{:type => 'textbox', :name => 'return-date'}
+					%li
+						%input{:type => 'submit', :value => 'Alert me!'}
+				
