@@ -1,4 +1,4 @@
-load 'polling.rb'
+load 'service/polling.rb'
 
 polling = Polling.new
 

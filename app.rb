@@ -5,6 +5,9 @@ require 'net/http'
 require 'uri'
 require 'json'
 
+load 'helpers/HttpUri.rb'
+
+include HttpUri
 include Mongo
 
 #mongo = Mongo::Connection.from_uri("mongodb://tony-7digital:7digital@flame.mongohq.com:27075/travelalerts")
@@ -12,7 +15,7 @@ include Mongo
 db = Connection.new('localhost', 27017).db('travelalerts')
 
 get '/' do
-  response = get_response("http://fco.innovate.direct.gov.uk/countries.json")
+  response = HttpUri.get_response("http://fco.innovate.direct.gov.uk/countries.json")
   countries =  JSON.parse(response.body)
   
   haml :index, :locals => {:countries => countries}
@@ -28,7 +31,7 @@ end
 
 get '/alert?:destination' do
   request_uri = "http://fco.innovate.direct.gov.uk/countries/#{params[:country]}/travel_advice_summary.json"
-  response = get_response(request_uri)
+  response = HttpUri.get_response(request_uri)
   response_body = JSON.parse(response.body)
   puts request_uri
   
@@ -36,9 +39,4 @@ get '/alert?:destination' do
   summary = response_body['travel_advice_section']['body']['markup']
   
   haml :alert, :locals => {:title => title, :summary => summary}
-end
-
-private
-def get_response(uri)
-  Net::HTTP.get_response(URI.parse(uri))
 end

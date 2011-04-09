@@ -2,9 +2,10 @@ require 'net/http'
 require 'uri'
 require 'json'
 require 'mongo'
+load 'service/sms.rb'
+load 'helpers/HttpUri.rb'
 
-load 'sms.rb'
-
+include HttpUri
 include Mongo
 
 class Polling  
@@ -12,7 +13,7 @@ class Polling
     db = Connection.new('localhost', 27017).db('travelalerts')
     
     uri = "http://pipes.yahoo.com/pipes/pipe.run?_id=ac45e9eb9b0174a4e53f23c4c9903c3f&_render=json&statustitle=logo&username=%40fconotification"
-    response = Net::HTTP.get_response(URI.parse(uri))
+    response = HttpUri.get_response(uri)
     results =  JSON.parse(response.body)
 
     results['value']['items'].each do |status|
