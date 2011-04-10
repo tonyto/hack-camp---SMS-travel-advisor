@@ -1,12 +1,18 @@
 %html
 	%head
 		%link{:rel => "stylesheet", :href => "/css/styles.css", :type => "text/css"}
+		%link{:rel => "stylesheet", :href => "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/themes/base/jquery-ui.css", :type => "text/css"}
 		%title phil the plonker
+		%script{:type => "text/javascript",
+		        :src  => "https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"}
+		%script{:type => "text/javascript",
+						:src  => "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"}
+		%script{:type => "text/javascript",
+		        :src  => "/javascript/application.js"}
 	%body
 		%div{:class => 'wrapper'}
 			%header
-				%h1 Phil
-				%h5 ...the plonker
+				%h1 @philb0
 			
 			%div{:class => 'content-form'}
 				%form{:name => 'sign-up-form', :class => 'sign-up-form', :action => '/', :method => 'post'}
@@ -17,18 +23,18 @@
 						Hey I'm Phil, I'll be your lookout while your abroad. 
 						%br
 					
-						We want to know how we're looking out for, so what's your name
-						%input{:type => 'textbox', :name => 'name'}.
+						We want to know who we're looking out for, so what's your name
+						%input{:type => 'text', :name => 'name'}.
 						%br
 						When something comes up we need a quick and easy way of notifying you, 
 						%br
 						so we'll need your
 						%strong phone number 
-						%input{:type => 'textbox', :name => 'number'}, 
+						%input{:type => 'text', :name => 'number'}, 
 						%br
 						to send you an SMS message, and your 
 						%strong email address 
-						%input{:type => 'textbox', :name => 'email'}, 
+						%input{:type => 'text', :name => 'email'}, 
 						%br
 						(it may not be that urgent but still think we should notify you).
 					
@@ -41,7 +47,7 @@
 								%option{:value => a['country']['name']}= a['country']['name']
 						%br
 						and when you think you'll be safely home 
-						%input{:type => 'textbox', :name => 'return-date'}.
+						%input{:type => 'text', :name => 'return-date', :id => 'return-date' }.
 						%br
 						%input{:type => 'submit', :class => 'button', :value => 'Alert me!'}
 					

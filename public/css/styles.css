@@ -2,6 +2,7 @@ html{height: 100%;}
 
 body { 
 	background-color: #fff; 
+	background-image: url('http://www.brendanmckillip.com/uploaded_images/tdk-mar30-clown-travel-agency-case-740292.jpg');
 	color: #333; 
 	
 	margin:0px;
@@ -30,17 +31,22 @@ input{
 }
 
 header{
-	margin-top:20px;
+	margin:30px;
+	padding-top:1px;
 }
 
 .wrapper{
-	margin: 0 auto -40px; width: 900px; min-height:100%; height: 100%;
+	margin: 0 auto -40px; width: 900px; min-height:650px; height: auto;
+	padding-bottom:20px;
+	background-color:white;
+	opacity: 0.9; 
+	-webkit-border-radius: 15px;
 }
 
 .content-form{
-	border:5px solid EBEBEB;
+	/* border:5px solid EBEBEB; */
 	padding:20px;
-	width:750px;
+	width:750px;		
 }
 
 .button {
