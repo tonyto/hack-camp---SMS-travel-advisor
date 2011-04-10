@@ -1,6 +1,13 @@
 %html
 	%head
+		%link{:rel => "stylesheet", :href => "/css/styles.css", :type => "text/css"}
+		%title phil the plonker
 	%body
-		%h1= locals[:title]
+		%div{:class => 'wrapper'}
+			%header
+				%h1 Phil
+				%h5 ...the plonker
 		
-		=locals[:summary]
+				%h1= locals[:title]
+		
+				=locals[:summary]
