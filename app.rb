@@ -24,7 +24,7 @@ end
 
 post '/' do
   params[:number][0] = "44"
-  details = {'name' => params[:name], 'email' => params[:email], 'number' => params[:number], 'destination' => params[:destination], 'return_date' => params[:return_date]}
+  details = {'name' => params[:name], 'email' => params[:email], 'number' => params[:number], 'destination' => params[:destination].downcase, 'return_date' => params[:return_date]}
   db['user'].insert(details)
   
   redirect "/alert?country=#{params[:destination]}"

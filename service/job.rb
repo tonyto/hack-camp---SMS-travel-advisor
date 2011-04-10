@@ -6,5 +6,5 @@ last_checked = Time.new(-1)
 while true
   polling.process(last_checked)
   last_checked = Time.now
-  sleep(5)
+  sleep(30)
 end
