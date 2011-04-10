@@ -11,7 +11,7 @@ include Mongo
 class Polling  
   def process(last_checked)
     
-    mongo = Mongo::Connection.from_uri("mongodb://hack:hackcamp@flame.mongohq.com:27075/travelalerts")
+    mongo = Mongo::Connection.from_uri("mongodb://tony-7digital:7digital@flame.mongohq.com:27075/travelalerts")
     db = mongo.db("travelalerts")
     #db = Connection.new('localhost', 27017).db('travelalerts')
     
