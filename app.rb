@@ -14,7 +14,7 @@ include Mongo
 mongo = Mongo::Connection.from_uri("mongodb://hack:hackcamp@flame.mongohq.com:27075/travelalerts")
 db = mongo.db("travelalerts") 
 #db = Connection.new('localhost', 27017).db('travelalerts')
-
+ 
 get '/' do
   response = HttpUri.get_response("http://fco.innovate.direct.gov.uk/countries.json")
   countries =  JSON.parse(response.body)
