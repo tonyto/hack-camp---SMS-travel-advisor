@@ -9,11 +9,9 @@ include HttpUri
 include Mongo
 
 class Polling  
-  def process(last_checked)
-    
-    mongo = Mongo::Connection.from_uri("mongodb://tony-7digital:7digital@flame.mongohq.com:27075/travelalerts")
-    db = mongo.db("travelalerts")
-    #db = Connection.new('localhost', 27017).db('travelalerts')
+  def process()
+    mongo = Mongo::Connection.from_uri("mongodb://#{APP_CONFIG['mongo_un']}:#{APP_CONFIG['mongo_pw']}@flame.mongohq.com:27075/#{APP_CONFIG['mongo_db']}")
+    db = mongo.db(APP_CONFIG['mongo_db'])
     
     uri = "http://pipes.yahoo.com/pipes/pipe.run?_id=ac45e9eb9b0174a4e53f23c4c9903c3f&_render=json&statustitle=logo&username=%40fcotravel"
     response = HttpUri.get_response(uri)

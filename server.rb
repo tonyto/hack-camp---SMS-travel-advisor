@@ -11,9 +11,8 @@ load 'helpers/HttpUri.rb'
 include HttpUri
 include Mongo
 
-mongo = Mongo::Connection.from_uri("mongodb://tony-7digital:7digital@flame.mongohq.com:27075/travelalerts")
-db = mongo.db("travelalerts") 
-#db = Connection.new('localhost', 27017).db('travelalerts')
+mongo = Mongo::Connection.from_uri("mongodb://#{APP_CONFIG['mongo_un']}:#{APP_CONFIG['mongo_pw']}@flame.mongohq.com:27075/#{APP_CONFIG['mongo_db']}")
+db = mongo.db(APP_CONFIG['mongo_db'])
  
 get '/' do
   response = HttpUri.get_response("http://fco.innovate.direct.gov.uk/countries.json")
