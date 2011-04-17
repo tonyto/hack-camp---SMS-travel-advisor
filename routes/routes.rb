@@ -1,18 +1,8 @@
-require 'rubygems'
-require 'sinatra'
-require 'haml'
-require 'mongo'
-require 'net/http'
-require 'uri'
-require 'json'
-
-load 'helpers/HttpUri.rb'
-
 include HttpUri
 include Mongo
 
-mongo = Mongo::Connection.from_uri("mongodb://#{APP_CONFIG['mongo_un']}:#{APP_CONFIG['mongo_pw']}@flame.mongohq.com:27075/#{APP_CONFIG['mongo_db']}")
-db = mongo.db(APP_CONFIG['mongo_db'])
+mongo = Mongo::Connection.from_uri("mongodb://#{settings.mongo_un}:#{settings.mongo_pw}@flame.mongohq.com:27075/#{settings.mongo_db}")
+db = mongo.db(settings.mongo_db)
  
 get '/' do
   response = HttpUri.get_response("http://fco.innovate.direct.gov.uk/countries.json")

@@ -10,8 +10,8 @@ include Mongo
 
 class Polling  
   def process()
-    mongo = Mongo::Connection.from_uri("mongodb://#{APP_CONFIG['mongo_un']}:#{APP_CONFIG['mongo_pw']}@flame.mongohq.com:27075/#{APP_CONFIG['mongo_db']}")
-    db = mongo.db(APP_CONFIG['mongo_db'])
+    mongo = Mongo::Connection.from_uri("mongodb://#{settings.mongo_un}:#{settings.mongo_pw}@flame.mongohq.com:27075/#{settings.mongo_db}")
+    db = mongo.db(settings.mongo_db)
     
     uri = "http://pipes.yahoo.com/pipes/pipe.run?_id=ac45e9eb9b0174a4e53f23c4c9903c3f&_render=json&statustitle=logo&username=%40fcotravel"
     response = HttpUri.get_response(uri)
