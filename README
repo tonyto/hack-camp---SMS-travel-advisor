@@ -1,0 +1,3 @@
+Something we hacked up during the LinkedGov Hackcamp. 
+
+Using the FCO Travel data, along with twitter, the service sends SMS messages to users when the travel advice has changed.
